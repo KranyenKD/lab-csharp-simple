@@ -1,3 +1,4 @@
+using System;
 using ComplexAlgebra;
 
 namespace Calculus
@@ -26,7 +27,65 @@ namespace Calculus
     {
         public const char OperationPlus = '+';
         public const char OperationMinus = '-';
+        
+        private char? _operation = null;
+        private Complex _pendingResult = new Complex(0,0);
+        private bool _hasOP = false;
+        
+        public Complex Value { get; set; }
+        public char? Operation
+        {
+            get => _operation;
+            set
+            {
+                
+                if (this._hasOP)
+                {
+                    this.ComputeResult();
+                }
+                this._pendingResult = this.Value;
+                this._operation = value;
+                this._hasOP = true;
+            }
+        }
+        
+        
 
+        public void ComputeResult()
+        {
+            switch (this._operation)
+                {
+                    case OperationMinus:
+                    {
+                        Console.WriteLine(this._pendingResult);
+                        this._pendingResult = this._pendingResult.Minus(Value);
+                        this.Value = this._pendingResult;
+                        this._operation = null;
+                        break;
+                    }
+
+                    case OperationPlus:
+                    {
+                        this._pendingResult = this._pendingResult.Plus(Value);
+                        this.Value = this._pendingResult;
+                        this._operation = null;
+                        break;
+                    }
+                        
+                }
+        }
+
+        public void Reset()
+        {
+            this._operation = null;
+            this.Value = null;
+            this._hasOP = false;
+            this._pendingResult = new Complex(0,0);
+        }
+        public override string ToString()
+        {
+            return this.Value + "," + this.Operation;
+        }
         // TODO fill this class
     }
 }

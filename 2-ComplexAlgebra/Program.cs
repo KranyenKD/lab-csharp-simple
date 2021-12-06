@@ -16,7 +16,7 @@ namespace ComplexAlgebra
              var i = new Complex(0, 1);
              var onePlusI = one.Plus(i);
              var iPlusOne = i.Plus(one);
-             var oneMinusI = one.Plus(i);
+             var oneMinusI = one.Plus(i).Complement();
              var minusI = oneMinusI.Minus(one);
             //
              Console.WriteLine(zero.Real); // 0

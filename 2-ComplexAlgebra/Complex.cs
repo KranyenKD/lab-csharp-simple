@@ -33,7 +33,13 @@ namespace ComplexAlgebra
 
         }
 
-        public override string ToString() => " " + this.Real + " " + this.Imaginary + "i";
+        public override string ToString()
+        {   
+            if(this.Real == 0) return  " " + this.Imaginary + "i";
+            if(this.Imaginary == 0) return  " " + this.Real;
+            if(this.Imaginary == 1) return " " + this.Real +  "+ i";
+            return " " + this.Real + " " + this.Imaginary + "i";
+        }
 
         public double GetRealPart() => this.Real;
         
@@ -47,6 +53,7 @@ namespace ComplexAlgebra
         
         public Complex Minus(Complex a) => new Complex(this.GetRealPart() - a.GetRealPart() , this.GetImgPart() - a.GetImgPart() );
         
+        public Complex Complement() => new Complex(Real, -Imaginary);
 
         protected bool Equals(Complex other)
         {

@@ -21,39 +21,39 @@ namespace Calculus
     {
         static void Main(string[] args)
         {
-            // var calc = new Calculator();
+             var calc = new Calculator();
             //
-            // Console.WriteLine(calc.ToString()); // null, null
+             Console.WriteLine(calc.ToString()); // null, null
             //
-            // calc.Value = new Complex(1, 0); // 1
+             calc.Value = new Complex(1, 0); // 1
             //
-            // Console.WriteLine(calc.ToString()); // 1, null
+             Console.WriteLine(calc.ToString()); // 1, null
             //
-            // calc.Operation = Calculator.OperationPlus;
+             calc.Operation = Calculator.OperationPlus;
             //
-            // Console.WriteLine(calc.ToString()); // null, +
+             Console.WriteLine(calc.ToString()); // null, +
             //
-            // calc.Value = new Complex(0, 1); // i
+             calc.Value = new Complex(0, 1); // i
             //
-            // Console.WriteLine(calc.ToString()); // i, +
+             Console.WriteLine(calc.ToString()); // i, +
             //
-            // calc.Operation = Calculator.OperationMinus;
+             calc.Operation = Calculator.OperationMinus;
             //
-            // Console.WriteLine(calc.ToString()); // null, -
+             Console.WriteLine(calc.ToString()); // null, -
             //
-            // calc.Value = new Complex(2, 0);
+             calc.Value = new Complex(2, 0);
             //
-            // Console.WriteLine(calc.ToString()); // 2, -
+             Console.WriteLine(calc.ToString()); // 2, -
             //
-            // calc.ComputeResult();
+             calc.ComputeResult();
             //
-            // Console.WriteLine(calc.ToString()); // -1 + i, null
+             Console.WriteLine(calc.ToString()); // -1 + i, null
             //
-            // Console.WriteLine(calc.Value); // -1 + i
+             Console.WriteLine(calc.Value); // -1 + i
             //
-            // calc.Reset();
+             calc.Reset();
             //
-            // Console.WriteLine(calc.ToString()); // null, null
+             Console.WriteLine(calc.ToString()); // null, null
         }
     }
 }
