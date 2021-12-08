@@ -9,43 +9,39 @@ namespace Indexers
     public class Map2D<TKey1, TKey2, TValue> : IMap2D<TKey1, TKey2, TValue>
     {
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.NumberOfElements" />
-        public int NumberOfElements
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int NumberOfElements => this.GetElements().Count;
+        
 
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.this" />
         public TValue this[TKey1 key1, TKey2 key2]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return this[key1, key2];}
+            set { this[key1, key2] = value; }
         }
 
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.GetRow(TKey1)" />
-        public IList<Tuple<TKey2, TValue>> GetRow(TKey1 key1)
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Tuple<TKey2, TValue>> GetRow(TKey1 key1) => this.GetRow(key1);
+
 
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.GetColumn(TKey2)" />
-        public IList<Tuple<TKey1, TValue>> GetColumn(TKey2 key2)
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Tuple<TKey1, TValue>> GetColumn(TKey2 key2) => this.GetColumn(key2);
+
 
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.GetElements" />
-        public IList<Tuple<TKey1, TKey2, TValue>> GetElements()
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Tuple<TKey1, TKey2, TValue>> GetElements() => this.GetElements();
+        
 
         /// <inheritdoc cref="IMap2D{TKey1, TKey2, TValue}.Fill(IEnumerable{TKey1}, IEnumerable{TKey2}, Func{TKey1, TKey2, TValue})" />
         public void Fill(IEnumerable<TKey1> keys1, IEnumerable<TKey2> keys2, Func<TKey1, TKey2, TValue> generator)
         {
-            throw new NotImplementedException();
+            foreach (var key1 in keys1.ToArray())
+            {
+                foreach (var key2 in keys2.ToArray())
+                {
+                    this[key1, key2] = generator(key1, key2);
+                    
+                }
+            }
         }
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)" />
